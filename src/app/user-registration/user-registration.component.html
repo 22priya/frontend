@@ -1,0 +1,130 @@
+<div class="container">    
+    <div class="row">
+        <div class="col-lg-6">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)" >
+                    <label for="name">Name:</label>
+                    <input #name type="text"
+                        id="name"
+                        class="form-control"
+                        formControlName="name"  >
+                        <span *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched " 
+                        class="help-block">Please enter name</span><br>
+
+                    <label for="mobile">Mobile No:</label>
+                    <input #mobileNo type="number"
+                        id="mobile"
+                        class="form-control"
+                        formControlName="number">
+                        <span *ngIf="!signupForm.get('number').valid && signupForm.get('number').touched " 
+                        class="help-block">Please enter valid mobile number</span><br>
+
+                    <label for="email">Email Id:</label>
+                    <input #emailId type="email"
+                        id="email"
+                        class="form-control"
+                        formControlName="email">
+                        <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched " 
+                        class="help-block">Please enter valid email</span><br>
+
+                    <label for="card-no">PAN No:</label>
+                    <input #cardNo type="text"
+                    id="card-no"
+                    class="form-control"
+                    formControlName="cardNo">
+                    <span *ngIf="!signupForm.get('cardNo').valid && signupForm.get('cardNo').touched " 
+                    class="help-block">Please enter valid PAN Number</span><br>
+
+                    
+                    <!-- <input type="text"
+                           class="form-control"
+                            id="fingerprint"
+                            formControlName="fingerprint"><br>
+                            <span *ngIf="!signupForm.get('fingerprint').valid && signupForm.get('fingerprint').touched " 
+                    class="help-block">Please upload FingerPrint</span><br> -->
+                    <form>
+                        <div class="form-group">
+                            <fieldset class="form-group">
+                
+                                <!-- <label>Upload Logo</label> -->
+                                <label for="fingerprint">Fingerprint Scan:</label>
+                                {{imageError}}
+                                <div class="custom-file fileInputProfileWrap">
+                                    <input type="file" (change)="fileChangeEvent_1($event)" id="fingerprint" class="fileInputProfile">
+                                    <div class="img-space">
+                
+                                        <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                            <img [src]="cardImageBase64_1" />
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                
+                                            <img src="./../../assets/placeholder.png" class="img-responsive" style="max-width: 50px;">
+                                        </ng-template>
+                
+                                    </div>
+                
+                                </div>
+                            </fieldset>
+                        </div>
+                        <a class="btn btn-danger" (click)="removeImage_1()" *ngIf="isImageSaved">Remove</a>
+                    </form>
+
+                    <form>
+                        <div class="form-group">
+                            <fieldset class="form-group">
+                
+                                <!-- <label>Upload Logo</label> -->
+                                <label for="iris">IRIS Scan:</label>
+                                {{imageError}}
+                                <div class="custom-file fileInputProfileWrap">
+    
+                                    <input type="file" (change)="fileChangeEvent_2($event)" id="iris" class="fileInputProfile">
+                                    <div class="img-space">
+                
+                                        <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                            <img [src]="cardImageBase64_2" />
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                
+                                            <img src="./../../assets/placeholder.png" class="img-responsive" style="max-width: 50px";>
+                                        </ng-template>
+                
+                                    </div>
+                
+                                </div>
+                            </fieldset>
+                        </div>
+                        <button class="btn btn-danger" (click)="removeImage_2()" *ngIf="isImageSaved">Remove</button><br>
+                    </form>
+
+<!-- 
+                    <label for="img">Face Img:</label>
+                    <input type="text"
+                            id="img"
+                            class="form-control"
+                            formControlName="faceimg">
+                            <span *ngIf="!signupForm.get('faceimg').valid && signupForm.get('faceimg').touched " 
+                    class="help-block">Please upload Face Image</span><br> -->
+                     
+                    <div class="row">
+                        <button type="submit" 
+                                class="btn btn-success"
+                                style="text-align: center;">Submit
+                        </button>
+                    </div>
+                    <br>
+
+
+
+
+<!-- 
+                    <div *ngFor="let i of cardholder_arr">
+                        <p>{{i.name}} {{i.fingerprint}} {{i.faceimg}}</p>
+                    </div> -->
+                    
+            </form>
+        </div>
+        <div class="col-lg-6"><br><br><br>
+            <img src="assets/login4.png" style="max-width: 750px;">
+        </div>
+    </div>   
+</div>

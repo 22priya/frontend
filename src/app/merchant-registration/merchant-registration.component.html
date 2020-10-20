@@ -1,0 +1,93 @@
+<div class="container">   
+    <div class="row">
+        <div class="col-lg-6">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)" >
+                    <label for="name">Name:</label>
+                    <input type="text"
+                        id="name"
+                        class="form-control"
+                        formControlName="name">
+                    <span *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched " 
+                    class="help-block">Please enter name</span><br>
+
+                    <label for="company">Company Name:</label>
+                    <input type="text"
+                    id="company"
+                    class="form-control"
+                    formControlName="company">
+                    <span *ngIf="!signupForm.get('company').valid && signupForm.get('company').touched " 
+                        class="help-block">Please enter your organisation</span><br>
+
+                    <label for="mobile">Mobile No:</label>
+                    <input type="number"
+                        id="mobile"
+                        class="form-control"
+                        formControlName="number">
+                    <span *ngIf="!signupForm.get('number').valid && signupForm.get('number').touched " 
+                    class="help-block">Please enter valid mobile number</span><br>
+
+                    <label for="email">Email Id:</label>
+                    <input type="email" 
+                            id="email"
+                            class="form-control"
+                            formControlName="email" />
+                    <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched " 
+                    class="help-block">Please enter valid email</span><br>
+                    
+                    <label for="Account No">Account No:</label>
+                    <input type="number"
+                        id="Account No"
+                        class="form-control"
+                        formControlName="accountNo">
+                    <span *ngIf="!signupForm.get('accountNo').valid && signupForm.get('accountNo').touched " 
+                    class="help-block">Please enter valid Account Number</span><br>
+
+                    <label for="username">Username:</label>
+                    <input type="text"
+                        id="username"
+                        class="form-control"
+                        formControlName="username">
+                        <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched " 
+                        class="help-block">Please enter username</span><br>
+
+                    <label for="password">Password:</label>
+                    <input type="password"
+                        id="password"
+                        class="form-control"
+                        formControlName="password"
+                        #password>
+                        <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched " 
+                        class="help-block">Please enter password</span><br>
+
+                    <label for="copy-password">Confirm Password:</label>
+                    <input type="password"
+                        id="copy-password"
+                        class="form-control"
+                        formControlName="copypassword"
+                        #p2>
+                        <span *ngIf="(!signupForm.get('copypassword').valid ||
+                                     signupForm.get('password').value!==signupForm.get('copypassword').value)&&
+                                     signupForm.get('copypassword').touched " 
+                        class="help-block">Passwords do not match</span><br>
+                   
+                   <br>
+                    <div class="row">
+                        <button type="submit" 
+                                class="btn btn-success"
+                                style="text-align: center;"
+                                [disabled]="!signupForm.valid && password!==copypassword">Submit
+                        </button>
+                    </div>
+                    <div *ngIf="invalid_username"><p>This username exist...please try another one!!</p></div>
+                    <br>
+            </form>
+        </div>
+        <div class="col-lg-6"><br><br><br>
+            <img src="assets/login3.png" style="max-width: 700px;">
+        </div>
+    </div>   
+</div>
+
+<ul *ngFor="let i of merchant_arr">
+    <p>{{i.name}} {{i.username}} {{i.password}}</p>
+</ul>

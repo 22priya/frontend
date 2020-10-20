@@ -1,0 +1,107 @@
+<div class="container">
+    <h3>Hello {{merchant.name}}</h3>
+    <h3>Welcome to {{merchant.company}}!!!</h3>
+    <div class="row">
+        <div class="col-lg-6">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
+                <!-- <label for="fingerprint">Finger Print:</label>
+                <input type="text"
+                        id="fingerprint"
+                        class="form-control"
+                        formControlName="fingerprint">
+                        <span *ngIf="!signupForm.get('fingerprint').valid && signupForm.get('fingerprint').touched " 
+                    class="help-block">Please upload FingerPrint</span><br>
+
+                <label for="img">Face Img:</label>
+                <input type="text"
+                        id="img"
+                        class="form-control"
+                        formControlName="img">
+                        <span *ngIf="!signupForm.get('img').valid && signupForm.get('img').touched " 
+                    class="help-block">Please upload Face Image</span><br> -->
+
+
+                <form>
+                    <div class="form-group">
+                        <fieldset class="form-group">
+
+                            <!-- <label>Upload Logo</label> -->
+                            <label for="fingerprint">Fingerprint Scan:</label>
+                            {{imageError}}
+                            <div class="custom-file fileInputProfileWrap">
+                                <input type="file" (change)="fileChangeEvent_1($event)" class="fileInputProfile">
+                                <div class="img-space">
+
+                                    <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                        <img [src]="cardImageBase64_1" />
+                                    </ng-container>
+                                    <ng-template #elseTemplate>
+
+                                        <img src="./../../assets/placeholder.png" class="img-responsive">
+                                    </ng-template>
+
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    <a class="btn btn-danger" (click)="removeImage_1()" *ngIf="isImageSaved">Remove</a>
+                </form>
+
+                <form>
+                    <div class="form-group">
+                        <fieldset class="form-group">
+
+                            <!-- <label>Upload Logo</label> -->
+                            <label for="fingerprint">IRIS Scan:</label>
+                            {{imageError}}
+                            <div class="custom-file fileInputProfileWrap">
+                                <input type="file" (change)="fileChangeEvent_2($event)" class="fileInputProfile">
+                                <div class="img-space">
+
+                                    <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                        <img [src]="cardImageBase64_2" />
+                                    </ng-container>
+                                    <ng-template #elseTemplate>
+
+                                        <img src="./../../assets/placeholder.png" class="img-responsive">
+                                    </ng-template>
+
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    <a class="btn btn-danger" (click)="removeImage_2()" *ngIf="isImageSaved">Remove</a>
+                </form>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" class="form-control" formControlName="amount">
+                <span *ngIf="!signupForm.get('amount').valid && signupForm.get('amount').touched "
+                    class="help-block">Please enter Amount</span><br>
+                <div class="row">
+                    <button type="submit" class="btn btn-success" 
+                    
+                        style="text-align: center;">Submit
+                    </button>
+
+                    <!-- [disabled]="!signupForm.valid" -->
+
+                </div>
+                <div *ngIf="validationDone===true">
+                    <div *ngIf="status===true" class="alert alert-success">
+                        <p>Verified</p>
+                        <p>Payment Approved!!!!</p>
+                    </div>
+                    <div *ngIf="status===false" class="alert alert-danger">
+                        <p>Verfication Failed</p>
+                        <p>Sorry!! We cannot process your payment!!</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <img src="assets/login5.png" style="max-width: 500px;">
+        </div>
+    </div>
+</div>

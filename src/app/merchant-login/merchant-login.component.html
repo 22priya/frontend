@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
+                <label for="username">Username:</label><br>
+                <input type="text"
+                    id="username"
+                    class="form-control"
+                    formControlName="username">
+                    <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched " 
+                    class="help-block">Please enter Username</span><br>
+                <label for="password">Password:</label>    
+                <input type="password"
+                    id="password"
+                    class="form-control"
+                    formControlName="password">
+                    <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched " 
+                    class="help-block">Please enter Password</span><br>
+                <div class="row">
+                    <button type="submit" 
+                            class="btn btn-success"
+                            [disabled]="!signupForm.valid"
+                            style="text-align: center;">Submit
+                    </button>
+                </div>
+                <div *ngIf="validation_done" class="alert alert-secondary">
+                    <div *ngIf="no_username"><h4>This username does not exist</h4></div>
+                    <div *ngIf="wrong_password"><h4>Wrong Password</h4></div>
+                </div>
+            </form>
+            
+        </div>
+        <div class="col-lg-5">
+            <img src="assets/login1.png" style="max-width: 550px;">
+        </div>
+    </div>
+</div>
