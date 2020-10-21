@@ -78,7 +78,9 @@
                                 [disabled]="!signupForm.valid && password!==copypassword">Submit
                         </button>
                     </div>
+                    <hr>
                     <div *ngIf="invalid_username"><p>This username exist...please try another one!!</p></div>
+                    <div class="alert alert-success" *ngIf="registerComplete"><p>Registration Complete!!</p></div>
                     <br>
             </form>
         </div>
@@ -88,6 +90,6 @@
     </div>   
 </div>
 
-<ul *ngFor="let i of merchant_arr">
+<!--<ul *ngFor="let i of merchant_arr">
     <p>{{i.name}} {{i.username}} {{i.password}}</p>
-</ul>
+</ul>-->

@@ -1,9 +1,11 @@
 div{
     background-color:#F7B600;
         position: relative;
-        bottom: 10px;
+        /*bottom: 10px;*/
         width: 100%;
-        padding-top: 5px;
-        /*border: 3px solid #8AC007;*/
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /*border: 3px solid #
+        8AC007;*/
       
 }

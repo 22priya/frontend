@@ -25,6 +25,7 @@ export class UserRegistrationComponent implements OnInit {
   isImageSaved: boolean;
   cardImageBase64_1: string;
   cardImageBase64_2: string;
+  registerComplete=false;
   userData: {
     'bioToken': string,
     'pan': string
@@ -57,6 +58,7 @@ export class UserRegistrationComponent implements OnInit {
         this.cardholder_arr = arr;
       }
     );
+    this.registerComplete=true;
     this.enterCustomerData(cardholder);
   }
   ngOnInit() {

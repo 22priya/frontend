@@ -14,6 +14,7 @@ export class MerchantRegistrationComponent implements OnInit {
   signupForm:FormGroup;
   merchant_arr:Merchant[];
   invalid_username=false;
+  registerComplete=false;
   name: FormControl;
   company: FormControl;
   number: FormControl;
@@ -29,11 +30,13 @@ export class MerchantRegistrationComponent implements OnInit {
   {
     var merchant:Merchant=form.value;
     this.invalid_username=this.merchantService.addMerchant(merchant);
+    this.registerComplete=!this.invalid_username;
     this.merchantService.merchant_added.subscribe(
       (arr:Merchant[])=>
       {
         this.merchant_arr=arr;
       }
+  
     );
   }
 
